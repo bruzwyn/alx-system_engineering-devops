@@ -22,7 +22,7 @@ Security
 * [Internet Engineering Task Force]()
 * [Request for Comments]()
 
-## Learning Objectives
+##  Learning Objectives
 * What is a server
 * Where servers usually live
 * What is SSH
