@@ -6,3 +6,11 @@ apt-get -y install nginx
 echo "Hello World!" > /var/www/html/index.html
 sed -i '/listen 80 default_server;/a rewrite ^/redirect_me https://www.linkedin.com/bruce-kimutai/ permanent;' /etc/nginx/sites-available/default
 service nginx start
+
+response=$(curl -sI 44.204.147.247/redirect_me)
+status_code=$(echo "$response" | head -n 1 | awk '{print $2}')
+if [ "$status_code" -eq 301 ]; then
+    echo "301"
+else
+    echo "Error: Expected 301 but got $status_code"
+fi
